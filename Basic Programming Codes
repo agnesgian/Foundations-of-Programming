@@ -1,0 +1,401 @@
+===============================================================================================================================================================
+***Question 1***
+(a) Write a C program to perform the following: 
+(i) Request the user to enter a string that is 20 characters or less. 
+(ii) Count the number of times the character ‘a’, ‘A’, ‘r’ or ‘R’ appear in the string. 
+(iii) Print the result. 
+===============================================================================================================================================================
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    //declare and initialise working storage
+    char input[20];         //holds user character input
+    int counter = 0;        //generic loop counter
+    int counta = 0;         //holds number of a
+    int countA = 0;         //holds number of A
+    int countr = 0;         //holds number of r
+    int countR = 0;         //holds number of R
+    
+    //prompt user to enter a string 20 char or less
+    printf("Please enter a string of 20 or less character :");
+    scanf("%20s", input);
+
+   //find and print number of a, A, r, and R
+
+ for (counter = 0; counter < strlen(input); counter++)
+    {
+        if (input[counter] == 'a') 
+        {
+            counta++;
+        }
+   
+        if (input[counter] == 'A') 
+            {
+                countA++;
+            }
+   
+        if (input[counter] == 'r') 
+            {
+                countr++;
+            }
+        if (input[counter] == 'R') 
+            {
+                countR++;
+            }
+    }
+     printf("The number of times %c appears is %d.\n", 'a', counta);
+     printf("The number of times %c appears is %d.\n", 'A', countA);
+     printf("The number of times %c appears is %d.\n", 'r', countr);
+     printf("The number of times %c appears is %d.\n", 'R', countR); 
+    
+    return 0;
+}
+
+===============================================================================================================================================================
+***Question 2***
+Write a fully annotated C program that request the user to enter (FIVE) 5 numbers and find the difference between the largest and smallest number. 
+A sample output of the program is shown below:
+Please enter the First number: 25 
+Please enter next number: 10 
+Please enter next number: 12 
+Please enter next number: 73 
+Please enter the Last number: 48 
+The largest integer is 73 
+The smallest integer is 10 
+The difference is 63 
+===============================================================================================================================================================
+
+#include <stdio.h>
+
+int main()
+{
+    // declare and initialise working storage
+    int num1 = 0;       // variables to hold user inputs
+    int num2 = 0;
+    int num3 = 0;
+    int num4 = 0;
+    int num5 = 0;
+    
+    int smallest = 0;       // holds the smallest of the 5 numbers
+    int largest = 0;        // holds the largest of the 5 numbers
+    int difference = 0;     // holds the difference betwen the largest and smallest integer
+    
+    // prompt the user for 5 numbers
+    printf("\n\nPlease enter the first number : ");
+    scanf("%d", &num1);
+    printf("\n\nPlease enter the second number : ");
+    scanf("%d", &num2);    
+    printf("\n\nPlease enter the third number : ");
+    scanf("%d", &num3);
+    printf("\n\nPlease enter the fourth number : ");
+    scanf("%d", &num4);    
+    printf("\n\nPlease enter the fifth number : ");
+    scanf("%d", &num5);    
+    
+    
+    //find and print largest number
+    
+     largest = num1;    // assume that the first number is the smallest    
+    
+    if (largest < num2)
+        {
+            largest = num2;
+        }
+    if (largest < num3)
+        {
+            largest = num3;
+        } 
+    if (largest < num4)
+            {
+            largest = num4;
+        } 
+    if (largest < num5)
+        {
+            largest = num5;
+        } 
+    printf("\n\nThe largest interger is %d", largest);    
+    
+    
+    // find and print the smallest number
+    smallest = num1;    // assume that the first number is the smallest    
+    
+    if (smallest > num2)
+        {
+            smallest = num2;
+        }
+    if (smallest > num3)
+        {
+            smallest = num3;
+        } 
+    if (smallest > num4)
+            {
+            smallest = num4;
+        } 
+    if (smallest > num5)
+        {
+            smallest = num5;
+        } 
+    printf("\nThe smallest integer is %d", smallest);     
+    
+    // find and print the different between the smallest and largest
+    difference = largest - smallest;
+    printf("\nThe difference is %d", difference);
+    
+    
+
+    return 0;
+}
+
+===============================================================================================================================================================
+***Question 3***
+(a) Rewrite the following while loop code fragment into an equivalent do loop that produces the same output: 
+ 
+int count = 10; 
+while (count >= 1) 
+{ 
+printf("Number = %d",count); 
+count--; 
+} 
+===============================================================================================================================================================
+#include <stdio.h>
+
+int main(void)
+{
+
+int count = 10; //initialise counter
+
+do 
+             { 
+                    printf("Number = %d",count); 
+             } while (--count =< 10);
+  
+ return 0;
+}
+
+===============================================================================================================================================================
+***Question 4 (a) ***
+Write a function: sortArray(int array[ ], char order) that takes the array[ ] and a variable order containing a single character ‘a’ or ‘d’ as parameters. 
+The function will use the bubble sort technique to sort the array[ ] according to the order specified: ‘a’ for ascending, ‘d’ for descending. 
+===============================================================================================================================================================
+ void sortArray(int array[], char order)
+{
+    int counter = 0;    //generic counter for loop
+    int outer = 0;      // outer loop counter
+    int inner = 0;      // inner loop counter
+    int temp = 0;       //cup for swapping
+        
+    if ((order == 'A')||(order == 'a'))
+    {
+        for(outer = 0; outer < 10; outer ++)
+        {
+            for(inner = outer + 1; inner < 10; inner++)
+            {
+            // do the check and swap when required
+                if (array[outer] > array[inner])
+                {
+                    temp = array[outer];
+                    array[outer] = array[inner];
+                    array[inner] = temp;
+                }
+            }
+        }
+        printf("\nYour sorting order is ascending");
+    }
+            
+    if ((order == 'D')||(order == 'd'))
+    {
+        for(outer = 0; outer < 10; outer ++)
+        {
+            for(inner = outer + 1; inner < 10; inner++)
+            {
+            // do the check and swap when required
+                if (array[outer] < array[inner])
+                {
+                temp = array[outer];
+                array[outer] = array[inner];
+                array[inner] = temp;
+                }
+            }
+        }
+        printf("\nYour sorting order is decending");
+    }
+
+
+===============================================================================================================================================================
+***Question 4 (b)***
+Write a driver program to test the function you have developed in part (a). 
+===============================================================================================================================================================
+#include <stdio.h>
+
+//declare function for later use
+void sortArray(int array[], char order);    
+
+int main()
+{
+    // declare and initialise working storage
+    int array[10] = {0,0,0,0,0,0,0,0,0,0};  //array to hold user input
+    int counter = 0;                        //counter for loop operation
+    char order;                             //hold user char input
+       
+    
+    //prompt user to input sorting order
+    for (counter = 0; counter < 1;)         // for loop without counter++ for validating user input
+    {
+        printf("\nPlease input the sorting order (a for ascending, d for decending : ");
+        scanf("%c", &order);
+        printf("\nYou would to to arrange your input in  : %c order\n", order);
+        
+        if ((order == 'A')||(order == 'a'))
+        {
+            counter++;
+        }
+           
+        else 
+            if ((order == 'D')||(order == 'd'))
+            {
+                counter++;
+            }  
+        else 
+        {
+            printf("\nInvalid Input!! ");
+        }
+        
+    }
+    
+    //prompt user to input 10 numbers
+    for (counter = 0; counter < 10; counter ++)
+    {
+        printf("\nPlease input the %d number : ", counter+1);
+        scanf("%d", &array[counter]);
+    }
+    
+    //display output before sorting.
+    printf ("\nYour input before sorting : ");
+        
+    for (counter = 0; counter < 10; counter ++)
+    {
+        printf ("%d ", array[counter]);
+    }
+    
+    sortArray(array,order);
+
+    return 0;
+}
+
+void sortArray(int array[], char order)
+{
+    int counter = 0;    //generic counter for loop
+    int outer = 0;      // outer loop counter
+    int inner = 0;      // inner loop counter
+    int temp = 0;       //cup for swapping
+    
+    
+    if ((order == 'A')||(order == 'a'))
+    {
+        for(outer = 0; outer < 10; outer ++)
+        {
+            for(inner = outer + 1; inner < 10; inner++)
+            {
+            // do the check and swap when required
+                if (array[outer] > array[inner])
+                {
+                    temp = array[outer];
+                    array[outer] = array[inner];
+                    array[inner] = temp;
+                }
+            }
+        }
+        printf("\nYour sorting order is ascending");
+    }
+            
+    if ((order == 'D')||(order == 'd'))
+    {
+        for(outer = 0; outer < 10; outer ++)
+        {
+            for(inner = outer + 1; inner < 10; inner++)
+            {
+            // do the check and swap when required
+                if (array[outer] < array[inner])
+                {
+                temp = array[outer];
+                array[outer] = array[inner];
+                array[inner] = temp;
+                }
+            }
+        }
+        printf("\nYour sorting order is decending");
+    }
+            
+        
+    //display sequence after sorting
+        printf ("\nYour input after sorting : ");
+    for (counter = 0; counter < 10; counter ++)
+        {
+            printf ("%d ", array[counter]);
+        }
+        
+}  
+
+===============================================================================================================================================================
+***Question 5***
+Create 2 instances of the customer record from the data structure. 
+===============================================================================================================================================================
+
+#include <stdio.h> 
+#include <string.h> 
+
+// define structure for Customer Record 
+
+struct CustomerRecord 
+    { 
+        int cust_Num;           
+        char cust_Name[50]; 
+        char cust_Address[100];
+        int cust_HP;
+        char cust_Gender[1]; 
+    }; 
+
+int main () 
+
+{ 
+    // declare and initialise working storage 
+    struct CustomerRecord cr1; 
+    struct CustomerRecord cr2;
+    
+    // create the first cr 1
+    cr1.cust_Num = 1000000001;           
+    strcpy(cr1.cust_Name, "Adeline");
+    strcpy(cr1.cust_Address, "80 Punggol Road Singapore 150855");
+    cr1.cust_HP = 8888888;
+    strcpy(cr1.cust_Gender, "F");
+    
+    // create the second cr 2
+    cr2.cust_Num = 1000000002;           
+    strcpy(cr2.cust_Name, "Agnes");
+    strcpy(cr2.cust_Address, "50 Punggol Road Singapore 150850");
+    cr2.cust_HP = 1111111;
+    strcpy(cr2.cust_Gender, "F");
+   
+    // print the first Customer Record - cr1
+    printf("\n\nCustomer Record 1"); 
+    printf("\n================"); 
+    printf("\nCustomer ID = %d", cr1.cust_Num); 
+    printf("\nCustomer Name = %s", cr1.cust_Name); 
+    printf("\nCustomer Address = %s", cr1.cust_Address);     
+    printf("\nCustomer HP = %d", cr1.cust_HP);
+    printf("\nCustomer Gender = %s", cr1.cust_Gender);
+    
+   // print the first Customer Record - cr2
+    printf("\n\nCustomer Record 2"); 
+    printf("\n================"); 
+    printf("\nCustomer ID = %d", cr2.cust_Num); 
+    printf("\nCustomer Name = %s", cr2.cust_Name); 
+    printf("\nCustomer Address = %s", cr2.cust_Address);     
+    printf("\nCustomer HP = %d", cr2.cust_HP);
+    printf("\nCustomer Gender = %s", cr2.cust_Gender);
+   
+    return 0; 
+}   

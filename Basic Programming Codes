@@ -1,5 +1,5 @@
 ===============================================================================================================================================================
-***Question 1***
+***Case 1***
 (a) Write a C program to perform the following: 
 (i) Request the user to enter a string that is 20 characters or less. 
 (ii) Count the number of times the character ‘a’, ‘A’, ‘r’ or ‘R’ appear in the string. 
@@ -55,7 +55,7 @@ int main(void)
 }
 
 ===============================================================================================================================================================
-***Question 2***
+***Case 2***
 Write a fully annotated C program that request the user to enter (FIVE) 5 numbers and find the difference between the largest and smallest number. 
 A sample output of the program is shown below:
 Please enter the First number: 25 
@@ -150,7 +150,7 @@ int main()
 }
 
 ===============================================================================================================================================================
-***Question 3***
+***Case 3***
 (a) Rewrite the following while loop code fragment into an equivalent do loop that produces the same output: 
  
 int count = 10; 
@@ -176,7 +176,7 @@ do
 }
 
 ===============================================================================================================================================================
-***Question 4 (a) ***
+***Case 4 (a) ***
 Write a function: sortArray(int array[ ], char order) that takes the array[ ] and a variable order containing a single character ‘a’ or ‘d’ as parameters. 
 The function will use the bubble sort technique to sort the array[ ] according to the order specified: ‘a’ for ascending, ‘d’ for descending. 
 ===============================================================================================================================================================
@@ -225,7 +225,7 @@ The function will use the bubble sort technique to sort the array[ ] according t
 
 
 ===============================================================================================================================================================
-***Question 4 (b)***
+***Case 4 (b)***
 Write a driver program to test the function you have developed in part (a). 
 ===============================================================================================================================================================
 #include <stdio.h>
@@ -340,7 +340,7 @@ void sortArray(int array[], char order)
 }  
 
 ===============================================================================================================================================================
-***Question 5***
+***Case 5***
 Create 2 instances of the customer record from the data structure. 
 ===============================================================================================================================================================
 
